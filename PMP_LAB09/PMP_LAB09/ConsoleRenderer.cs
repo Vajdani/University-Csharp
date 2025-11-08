@@ -11,6 +11,8 @@
 
         void RenderSingleSprite(Position position, ConsoleSprite sprite)
         {
+            if (Position.Distance(game.Player.Position, position) > game.Player.SightRange) { return; }
+
             if (position.X < 0 || position.X >= Console.WindowWidth ||
                 position.Y < 0 || position.Y >= Console.WindowHeight)
             {

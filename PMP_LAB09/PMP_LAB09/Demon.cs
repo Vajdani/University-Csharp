@@ -13,6 +13,7 @@
         DemonStateType state;
         int minDamage;
         int maxDamage;
+        int speed;
 
         public Position Position { get { return position; } set { position = value; } }
         public ConsoleSprite Sprite { get { return sprite; } }
@@ -27,6 +28,7 @@
         public int SightRange { get { return sightRange; } }
         public int AttackRange { get { return attackRange; } }
         public DemonStateType State { get { return state; } set { state = value; } }
+        public int Speed { get { return speed; } }
 
         public Demon(int x, int y, DemonType type)
         {
@@ -50,6 +52,7 @@
                     sprite = new(ConsoleColor.Black, ConsoleColor.White, 'o');
                     minDamage = 3;
                     maxDamage = 15;
+                    speed = 70;
                     break;
                 case DemonType.Imp:
                     fillingRatio = 0.4;
@@ -59,6 +62,7 @@
                     sprite = new(ConsoleColor.Black, ConsoleColor.Red, 'o');
                     minDamage = 3;
                     maxDamage = 24;
+                    speed = 93;
                     break;
                 case DemonType.Mancubus:
                     fillingRatio = 0.96;
@@ -68,6 +72,7 @@
                     sprite = new(ConsoleColor.Black, ConsoleColor.Magenta, '0');
                     minDamage = 8;
                     maxDamage = 64;
+                    speed = 70;
                     break;
             }
         }

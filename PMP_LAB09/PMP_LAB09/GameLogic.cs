@@ -95,12 +95,12 @@
             return total;
         }
 
-        void DemonMoveLogic(Demon demon)
+        void DemonMoveLogic(Demon demon, long dt)
         {
             int x = demon.Position.X + Random.Shared.Next(-1, 2);
             int y = demon.Position.Y + Random.Shared.Next(-1, 2);
             Position targetPosition = new(x, y);
-            Move(demon, targetPosition);
+            Move(demon, targetPosition, dt);
         }
 
         public void PlayerAttackLogic()
@@ -222,13 +222,13 @@
             }
         }
 
-        void DemonAttackLogic(Demon demon)
+        void DemonAttackLogic(Demon demon, long dt)
         {
             double distance = Position.Distance(game.Player.Position, demon.Position);
             if (distance <= demon.AttackRange)
             {
                 game.PlaySoundEffect(SoundEffectType.Pain);
-                game.Player.TakeDamage(CalculateDamage(distance, demon.GetDamage()));
+                game.Player.TakeDamage(CalculateDamage(distance, demon.GetDamage()) * (int)dt/1000);
             }
         }
 
@@ -247,7 +247,7 @@
             }
         }
 
-        void UpdateDemons()
+        void UpdateDemons(long dt)
         {
             for (int i = 0; i < game.Demons.Count; i++)
             {
@@ -256,10 +256,10 @@
                 switch (demon.State)
                 {
                     case DemonStateType.Move:
-                        DemonMoveLogic(demon);
+                        DemonMoveLogic(demon, dt);
                         break;
                     case DemonStateType.Attack:
-                        DemonAttackLogic(demon);
+                        DemonAttackLogic(demon, dt);
                         break;
                 }
 
@@ -267,9 +267,9 @@
             }
         }
 
-        public void UpdateGameState()
+        public void UpdateGameState(long dt)
         {
-            UpdateDemons();
+            UpdateDemons(dt);
             CleanUpGameItems();
             CleanUpDemons();
         }
@@ -283,8 +283,11 @@
             }
         }
 
-        public void Move(Demon demon, Position position)
+        public void Move(Demon demon, Position position, long dt)
         {
+            double chance = demon.Speed / 100.0 * dt / 1000.0;
+            if (Random.Shared.NextDouble() >= chance) { return; }
+
             double totalFill = GetTotalFillingRatio(position) + demon.FillingRatio;
             if (totalFill < 1)
             {

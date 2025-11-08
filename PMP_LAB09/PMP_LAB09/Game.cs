@@ -5,6 +5,9 @@ namespace PMP_LAB09
 {
     internal class Game
     {
+        public static int logicDt = 500;
+        public static int renderDt = 25;
+
         Player player;
         bool exited;
         List<GameItem> items;
@@ -110,13 +113,13 @@ namespace PMP_LAB09
 
                 //Thread.Sleep(16);
 
-                if (stopwatchLogic.ElapsedMilliseconds > 500)
+                if (stopwatchLogic.ElapsedMilliseconds > logicDt)
                 {
-                    logic.UpdateGameState();
+                    logic.UpdateGameState(logicDt);
                     stopwatchLogic.Restart();
                 }
 
-                if (stopwatchRenderer.ElapsedMilliseconds > 25)
+                if (stopwatchRenderer.ElapsedMilliseconds > renderDt)
                 {
                     renderer.RenderGame();
                     stopwatchRenderer.Restart();
