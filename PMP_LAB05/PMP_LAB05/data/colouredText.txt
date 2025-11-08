@@ -1,0 +1,3 @@
+Red#Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Blue#Suspendisse eros erat, ornare quis magna vitae, rutrum interdum turpis.
+Green#Morbi pellentesque ut sem sed dapibus.
