@@ -5,12 +5,12 @@
         static void Main(string[] args)
         {
             StreamReader reader = new("input.txt");
-            if (!int.TryParse(reader.ReadLine(), out int rows))
+            if (!long.TryParse(reader.ReadLine(), out long rows))
             {
                 throw new Exception("Program length is not parseable as a number");
             }
 
-            int rowCount = 0;
+            long rowCount = 0;
             long pathCount = 0;
             while (!reader.EndOfStream)
             {
