@@ -10,9 +10,8 @@
                 throw new Exception("Program length is not parseable as a number");
             }
 
-            List<string> stack = new();
             int rowCount = 0;
-            int blockCount = 0;
+            int pathCount = 0;
             while (!reader.EndOfStream)
             {
                 rowCount++;
@@ -26,48 +25,31 @@
                 { 
                     throw new Exception("Invalid program");
                 }
-                
+
                 if (line == "if")
                 {
-                    blockCount++;
-                    stack.Add(line);
+                    pathCount++;
                 }
-                else if (line == "else")
+                else if(line == "else")
                 {
-                    if (stack[^1] == "if")
-                    {
-                        stack.RemoveAt(stack.Count - 1);
-                        stack.Add("else");
-                    }
-                    else
-                    {
-                        throw new Exception("Invalid block");
-                    }
+                    pathCount++;
+                    rowCount++;
+                    reader.ReadLine();
                 }
-                else if (line == "endif")
-                {
-                    Console.WriteLine($"\tSTACK ENDIF START: {string.Join(',', stack)}");
-
-                    if (stack[^1] == "if" || stack[^1] == "else")
-                    {
-                        blockCount++;
-                        stack.RemoveAt(stack.Count - 1);
-                    }
-
-                    Console.WriteLine($"\tSTACK ENDIF END: {string.Join(',', stack)}\n");
-                }
-
-                Console.WriteLine(line);
             }
+            reader.Close();
 
             if (rowCount < rows)
             {
                 throw new Exception("Program length is shorter than declared");
             }
 
-            reader.Close();
+            if (rowCount == 2)
+            {
+                pathCount++;
+            }
 
-            Console.WriteLine(blockCount);
+            Console.WriteLine(pathCount);
         }
     }
 }
