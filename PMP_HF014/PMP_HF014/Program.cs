@@ -11,7 +11,7 @@
             }
 
             int rowCount = 0;
-            int pathCount = 0;
+            long pathCount = 0;
             while (!reader.EndOfStream)
             {
                 rowCount++;
