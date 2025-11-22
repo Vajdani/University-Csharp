@@ -20,7 +20,7 @@ namespace PMP_LAB09
         Stopwatch stopwatchRenderer;
 
         WindowsMediaPlayer musicPlayer;
-        WindowsMediaPlayer sfxPlayer;
+        //WindowsMediaPlayer sfxPlayer;
 
         public Player Player { get { return player; } }
         public bool Exited { get { return exited; } set { exited = value; } }
@@ -41,7 +41,7 @@ namespace PMP_LAB09
             musicPlayer = new();
             musicPlayer.settings.setMode("loop", true);
 
-            sfxPlayer = new();
+            //sfxPlayer = new();
         }
 
         private void UserAction()
@@ -95,10 +95,8 @@ namespace PMP_LAB09
             //    Thread.Sleep(2000);
             //}
 
-            //if (true)
-            //{
-            //    return;
-            //}
+            //PlaySoundEffect(SoundEffectType.Pain);
+            //PlaySoundEffect(SoundEffectType.Shotgun);
 
             PlayMusic("sounds/doom_music.mp3");
 
@@ -115,7 +113,7 @@ namespace PMP_LAB09
 
                 if (stopwatchLogic.ElapsedMilliseconds > logicDt)
                 {
-                    logic.UpdateGameState(logicDt);
+                    logic.UpdateGameState(stopwatchLogic.ElapsedMilliseconds);
                     stopwatchLogic.Restart();
                 }
 
@@ -236,29 +234,54 @@ namespace PMP_LAB09
 
         public void PlaySoundEffect(SoundEffectType type)
         {
+            //switch (type)
+            //{
+            //    case SoundEffectType.BFG:
+            //        sfxPlayer.URL = "sounds/bfg.mp3";
+            //        break;
+            //    case SoundEffectType.Door:
+            //        sfxPlayer.URL = "sounds/door.mp3";
+            //        break;
+            //    case SoundEffectType.ItemPickup:
+            //        sfxPlayer.URL = "sounds/item_pickup.mp3";
+            //        break;
+            //    case SoundEffectType.Pain:
+            //        sfxPlayer.URL = "sounds/pain.mp3";
+            //        break;
+            //    case SoundEffectType.PlayerDeath:
+            //        sfxPlayer.URL = "sounds/player_death.mp3";
+            //        break;
+            //    case SoundEffectType.Shotgun:
+            //        sfxPlayer.URL = "sounds/shotgun.mp3";
+            //        break;
+            //}
+
+            //sfxPlayer.controls.play();
+
+            string url = "";
             switch (type)
             {
                 case SoundEffectType.BFG:
-                    sfxPlayer.URL = "sounds/bfg.mp3";
+                    url = "sounds/bfg.mp3";
                     break;
                 case SoundEffectType.Door:
-                    sfxPlayer.URL = "sounds/door.mp3";
+                    url = "sounds/door.mp3";
                     break;
                 case SoundEffectType.ItemPickup:
-                    sfxPlayer.URL = "sounds/item_pickup.mp3";
+                    url = "sounds/item_pickup.mp3";
                     break;
                 case SoundEffectType.Pain:
-                    sfxPlayer.URL = "sounds/pain.mp3";
+                    url = "sounds/pain.mp3";
                     break;
                 case SoundEffectType.PlayerDeath:
-                    sfxPlayer.URL = "sounds/player_death.mp3";
+                    url = "sounds/player_death.mp3";
                     break;
                 case SoundEffectType.Shotgun:
-                    sfxPlayer.URL = "sounds/shotgun.mp3";
+                    url = "sounds/shotgun.mp3";
                     break;
             }
 
-            sfxPlayer.controls.play();
+            SFXHandler.PlaySound(url);
         }
 
         public void PlayMusic(string path)
