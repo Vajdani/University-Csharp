@@ -9,7 +9,6 @@
         {
             StreamWriter writer = new("output.txt");
             writer.Write(count);
-            Console.Write(count);
             writer.Close();
         }
 
