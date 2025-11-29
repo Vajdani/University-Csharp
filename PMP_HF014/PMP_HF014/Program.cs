@@ -12,9 +12,9 @@
             writer.Close();
         }
 
-        static int RecurseProgram(string terminator)
+        static long RecurseProgram(string terminator)
         {
-            int pathCount = 1;
+            long pathCount = 1;
             while (program[instructionIndex] != terminator)
             {
                 if (program[instructionIndex] == "if")
@@ -35,7 +35,7 @@
             long rows = long.Parse(reader.ReadLine());
 
             program = new string[rows];
-            for (int i = 0; i < rows; i++)
+            for (long i = 0; i < rows; i++)
             {
                 program[i] = reader.ReadLine();                
             }
