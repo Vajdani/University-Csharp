@@ -12,7 +12,7 @@ namespace PMP_F1_ZH2
 
         public FleetHandler(string fileName)
         {
-            StreamReader reader = new("weyland-yutani.csv");
+            StreamReader reader = new(fileName);
             today = DateTime.Parse(reader.ReadLine());
 
             ships = new();
