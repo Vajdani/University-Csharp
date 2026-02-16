@@ -54,7 +54,7 @@
         {
             Animal[] animalNew = new Animal[animals.Length];
             int count = 0;
-            for (int i = 0; i < animals.Length; i++)
+            for (int i = 0; i < animalCount; i++)
             {
                 if (animals[i].Name != name)
                 {
@@ -68,7 +68,16 @@
 
         public int CountOfSpecies(Species species)
         {
-            return animals.Count(x => x.Species == species);
+            int count = 0;
+            foreach (Animal animal in animals)
+            {
+                if (animal.Species == species)
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
 
         public bool AnimalExists(Species species, bool sex)
@@ -86,23 +95,48 @@
 
         public Animal[] FindBySpecies(Species species)
         {
-            return [.. animals.Where(x => x.Species == species)];
+            List<Animal> found = [];
+            foreach (Animal animal in animals)
+            {
+                if (animal.Species == species)
+                {
+                    found.Add(animal);
+                }
+            }
+
+            return [.. found];
         }
 
         public float AverageWeightOfSpecies(Species species)
         {
-            Animal[] ofSpecies = FindBySpecies(species);
-            return ofSpecies.Sum(x => x.Weight) / (float)ofSpecies.Length;
+            int speciesCount = 0;
+            float weight = 0;
+            foreach (Animal animal in animals)
+            {
+                if (animal.Species == species)
+                {
+                    speciesCount++;
+                    weight += animal.Weight;
+                }
+            }
+
+            return weight / speciesCount;
         }
 
         public bool AnimalSexPairOfSpeciesExists(Species species)
         {
-            Animal? half = Array.Find(animals, x => x.Species == species);
-            if (half == null)
+            int index = 0;
+            while (index < animalCount && animals[index].Species != species)
+            {
+                index++;
+            }
+            
+            if (index >= animalCount)
             {
                 return false;
             }
 
+            Animal half = animals[index];
             foreach (Animal animal in animals)
             {
                 if (half.Species == animal.Species && half.Sex != animal.Sex)
@@ -117,10 +151,10 @@
         public static int WhichCageContainsMostOf(Cage[] cages, Species species)
         {
             int index = 0;
-            int count = cages[0].animals.Count(x => x.Species == species);
+            int count = cages[0].CountOfSpecies(species);
             for (int i = 1; i < cages.Length; i++)
             {
-                int nextCount = cages[i].animals.Count(x => x.Species == species);
+                int nextCount = cages[i].CountOfSpecies(species);
                 if (nextCount > count)
                 {
                     index = i;

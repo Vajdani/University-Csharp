@@ -1,15 +1,20 @@
 ﻿using SZFA_LAB01;
 
+Cage testCage;
 if (args.Length > 0)
 {
     Console.WriteLine($"Folder arg detected: {args[0]}");
 
-    Cage[] cages2 = Cage.MakeZooFromFolder(args[0]);
-    Console.WriteLine($"Cages read from folder: {cages2.Length}");
-    foreach (Cage cage_ in cages2)
+    Cage[] cages = Cage.MakeZooFromFolder(args[0]);
+    Console.WriteLine($"Cages read from folder: {cages.Length}");
+    foreach (Cage cage in cages)
     {
-        cage_.PrintContents();
+        cage.PrintContents();
     }
+
+    testCage = cages[0];
+
+    Console.WriteLine($"WhichCageContainsMostOf {Cage.WhichCageContainsMostOf(cages, Species.Dog)}");
 }
 else
 {
@@ -25,6 +30,22 @@ else
 
     string filePath = "../../../template.txt";
     Console.WriteLine($"\nReading from file: {filePath}");
-    Cage cage2 = new(filePath);
-    cage2.PrintContents();
+    testCage = new(filePath);
+    testCage.PrintContents();
 }
+
+Console.WriteLine();
+testCage.PrintContents();
+Console.WriteLine($"CountOfSpecies {testCage.CountOfSpecies(Species.Dog)}");
+Console.WriteLine($"AnimalExists {testCage.AnimalExists(Species.Panda, true)}");
+Console.WriteLine($"FindBySpecies {testCage.FindBySpecies(Species.Dog).Length}");
+Console.WriteLine($"AverageWeightOfSpecies {testCage.AverageWeightOfSpecies(Species.Rabbit)}");
+Console.WriteLine($"AnimalSexPairOfSpeciesExists {testCage.AnimalSexPairOfSpeciesExists(Species.Rabbit)}");
+
+testCage.Delete("Pó");
+testCage.Delete("Pó Apja");
+testCage.PrintContents();
+testCage.Add(new Animal("jdhjfdf", false, 0, 0));
+testCage.Add(new Animal("jdhjfdf", false, 0, 0));
+testCage.Add(new Animal("jdhjfdf", false, 0, 0));
+testCage.PrintContents();
