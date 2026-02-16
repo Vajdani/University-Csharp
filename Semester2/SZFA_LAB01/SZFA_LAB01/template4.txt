@@ -1,0 +1,5 @@
+Pó,fiú,10,Panda
+Pó Apja,fiú,10,Panda
+Nyuszi,lány,10,Rabbit
+Kutya,lány,10,Dog
+Max,fiú,10,Rabbit
