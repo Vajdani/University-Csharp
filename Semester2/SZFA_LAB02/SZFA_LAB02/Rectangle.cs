@@ -4,11 +4,11 @@ namespace SZFA_LAB02
 {
     internal class Rectangle : Shape
     {
-        protected int height;
-        protected int width;
+        int height;
+        int width;
 
-        public int Height { get => height; set => height = value; }
-        public int Width { get => width; set => width = value; }
+        public virtual int Height { get => height; set => height = value; }
+        public virtual int Width { get => width; set => width = value; }
 
         public override bool Displayable { get => width > 0 && height > 0; }
 

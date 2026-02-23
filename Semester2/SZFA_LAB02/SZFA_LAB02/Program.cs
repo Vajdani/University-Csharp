@@ -94,6 +94,11 @@ Circle crc2 = new(75);
 Console.WriteLine();
 Console.WriteLine(crc1);
 Console.WriteLine(crc2);
-sqr2.Copy(crc1);
+crc2.Copy(crc1);
 Console.WriteLine("Copied:");
 Console.WriteLine(crc2);
+
+Console.WriteLine();
+Console.WriteLine(sqr2.Width);
+sqr2.Height = 20;
+Console.WriteLine($"{sqr2.Width} {sqr2.Height}");
