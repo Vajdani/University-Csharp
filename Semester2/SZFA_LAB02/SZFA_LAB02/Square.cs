@@ -50,5 +50,12 @@ namespace SZFA_LAB02
                 this.Width = rect.Width;
             }
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || obj is not Square) return false;
+
+            return base.Equals(obj);
+        }
     }
 }
