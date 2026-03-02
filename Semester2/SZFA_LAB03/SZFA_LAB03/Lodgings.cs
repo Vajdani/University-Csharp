@@ -4,11 +4,11 @@
     {
         int bookedMonths;
 
-        public Lodgings(float area, int inhabitantsCount, int unitPrice) : base(area, 2, inhabitantsCount, unitPrice) { }
+        public Lodgings(int area, int inhabitantsCount, int unitPrice) : base(area, 2, inhabitantsCount, unitPrice) { }
 
-        public float GetCost(int months)
+        public int GetCost(int months)
         {
-            return TotalValue() / 240 / inhabitantsCount;
+            return TotalValue() / 240 / Math.Max(inhabitantsCount, 1) * months;
         }
 
         public bool IsBooked()

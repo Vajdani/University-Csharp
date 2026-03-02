@@ -2,6 +2,6 @@
 {
     internal interface IRealEstate
     {
-        float TotalValue();
+        int TotalValue();
     }
 }

@@ -1,30 +1,29 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace SZFA_LAB03
+﻿namespace SZFA_LAB03
 {
     internal class Garage : IRealEstate, IRent
     {
-        float area;
+        int area;
         int unitPrice;
         bool isHeated;
         int months;
         bool isOccupied;
 
-        public Garage(float area, int unitPrice, bool isHeated)
+        public Garage(int area, int unitPrice, bool isHeated)
         {
             this.area = area;
             this.unitPrice = unitPrice;
             this.isHeated = isHeated;
         }
 
-        public float TotalValue()
+        public int TotalValue()
         {
+            Console.WriteLine($"{area} {unitPrice}");
             return area * unitPrice;
         }
 
-        public float GetCost(int months)
+        public int GetCost(int months)
         {
-            return (int)(TotalValue() / 120 / (isHeated ? 1.5 : 1));
+            return (int)Math.Round(TotalValue() / 120.0 / (isHeated ? 1.5 : 1) * months, 0);
         }
 
         public bool IsBooked()

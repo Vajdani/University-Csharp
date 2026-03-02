@@ -4,7 +4,7 @@
     {
         int childrenCount;
 
-        public FamilyApartment(float area, int roomsCount, int inhabitantsCount, int unitPrice) : base(area, roomsCount, inhabitantsCount, unitPrice) { }
+        public FamilyApartment(int area, int roomsCount, int inhabitantsCount, int unitPrice) : base(area, roomsCount, inhabitantsCount, unitPrice) { }
 
         public bool ChildIsBorn()
         {

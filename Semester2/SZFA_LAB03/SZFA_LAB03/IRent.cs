@@ -2,7 +2,7 @@
 {
     internal interface IRent
     {
-        float GetCost(int months);
+        int GetCost(int months);
         bool IsBooked();
         bool Book(int months);
     }

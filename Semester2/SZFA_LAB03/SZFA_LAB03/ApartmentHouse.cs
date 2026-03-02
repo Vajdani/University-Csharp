@@ -56,9 +56,9 @@
             return false;
         }
 
-        public float TotalValue()
+        public int TotalValue()
         {
-            float sum = 0;
+            int sum = 0;
             foreach (Flat flat in flats)
             {
                 if (flat.InhabitantCount > 0)
@@ -91,14 +91,14 @@
                 {
                     case "Alberlet":
                         flats.Add(
-                            new Lodgings(float.Parse(split[1]), int.Parse(split[2]), int.Parse(split[3]))
+                            new Lodgings((int)Math.Round(float.Parse(split[1]), 0), int.Parse(split[2]), int.Parse(split[3]))
                         );
                         break;
                     case "CsaladiApartman":
-                        flats.Add(new FamilyApartment(float.Parse(split[1]), 2, int.Parse(split[2]), int.Parse(split[3])));
+                        flats.Add(new FamilyApartment((int)Math.Round(float.Parse(split[1]), 0), 2, int.Parse(split[2]), int.Parse(split[3])));
                         break;
                     case "Garazs":
-                        garages.Add(new Garage(float.Parse(split[1]), int.Parse(split[2]), split[3] == "futott"));
+                        garages.Add(new Garage((int)Math.Round(float.Parse(split[1]), 0), int.Parse(split[2]), split[3] == "futott"));
                         break;
                 }
             }
