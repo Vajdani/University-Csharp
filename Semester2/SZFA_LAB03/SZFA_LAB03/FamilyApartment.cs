@@ -13,6 +13,7 @@
                 return false;
             }
 
+            inhabitantsCount++;
             childrenCount++;
 
             return true;
