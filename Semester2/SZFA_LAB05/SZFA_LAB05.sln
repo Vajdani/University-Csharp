@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZFA_LAB05_SportWatchTask", "SZFA_LAB05\SZFA_LAB05_SportWatchTask.csproj", "{6BC61DC1-BCB1-4A4E-B941-2721925FC725}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZFA_LAB05_IngredientStack", "SZFA_LAB05_IngredientStack\SZFA_LAB05_IngredientStack.csproj", "{B12857B2-581D-4369-8BED-928372605630}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BC61DC1-BCB1-4A4E-B941-2721925FC725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BC61DC1-BCB1-4A4E-B941-2721925FC725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BC61DC1-BCB1-4A4E-B941-2721925FC725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC61DC1-BCB1-4A4E-B941-2721925FC725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B12857B2-581D-4369-8BED-928372605630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B12857B2-581D-4369-8BED-928372605630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B12857B2-581D-4369-8BED-928372605630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B12857B2-581D-4369-8BED-928372605630}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC0C8FE3-5DA8-4FBD-978D-7D4ECE7F3026}
+	EndGlobalSection
+EndGlobal
