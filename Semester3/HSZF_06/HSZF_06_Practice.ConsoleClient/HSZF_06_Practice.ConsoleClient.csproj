@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ConsoleMenu-simple" Version="2.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HSZF_06_Practice.BusinessLogic\HSZF_06_Practice.BusinessLogic.csproj" />
+    <ProjectReference Include="..\HSZF_06_Practice.DataAccess\HSZF_06_Practice.DataAccess.csproj" />
+    <ProjectReference Include="..\HSZF_06_Practice.Shared\HSZF_06_Practice.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
