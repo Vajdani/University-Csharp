@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "HSZF_09_Practice.ConsoleClient\\HSZF_09_Practice.ConsoleClient.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "HSZF_09_Practice.WebAPI\\HSZF_09_Practice.WebAPI.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+@HSZF_09_Practice.WebAPI_HostAddress = http://localhost:5113
+
+GET {{HSZF_09_Practice.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
